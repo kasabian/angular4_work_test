@@ -1,0 +1,37 @@
+<div class="col-md-6">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Корзина <span class="label label-info"> {{ sumOfPrices }} грн</span></h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-condensed" 
+         		 *ngIf="items.length"
+      >
+        <thead>
+          <tr>
+            <th>Категория</th>
+            <th>Блюдо</th>
+            <th>Цена</th>
+            <th></th>
+          </tr>
+        </thead>
+            	
+        <tr app-menu-item 
+            *ngFor="let item of items; let i = index;" [item]="item"
+        >
+          <td>
+      		  <button type="button" 
+                    class="btn btn-danger"
+                		(click)="removeItem(i)"
+       			>
+        			<span class="glyphicon glyphicon-minus"></span>
+        		</button>
+   	 			</td>
+        </tr>
+
+      </table>
+
+		  <p *ngIf="!items.length">Ваша корзина пуста</p>
+    </div>
+  </div>
+</div>

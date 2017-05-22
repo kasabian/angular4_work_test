@@ -1,0 +1,25 @@
+<div class="btn-group">
+   
+    <button class="btn btn-default btn-sm dropdown-toggle" 
+      	   type="button" 
+           (click)="switchSortMenu()"
+    >
+   		Сортировать
+   		<span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu" 
+   	   [ngClass]="{ 'show': IsOpenSortMenu }"
+   	>
+
+	    <li *ngIf="lastTerm">
+         <a (click)="selectTerm('')">Сбросить</a>
+      </li>	
+
+      <li *ngFor="let item of items | uniqueArray" >
+         <a (click)="selectTerm(item.category)">{{ item.category }}</a>
+      </li>
+      
+   </ul>
+
+</div>

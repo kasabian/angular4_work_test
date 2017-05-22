@@ -1,0 +1,45 @@
+<div class="col-md-6">
+   <div class="panel panel-info">
+	  <div class="panel-heading">
+         <div class="row">
+            <div class="col-md-9 col-sm-6 col-xs-6">
+               <h3 class="panel-title">Меню</h3>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 b-head-control">
+               <app-sort-button [items] = "items"
+                                (onSelect) = "setSortTerm($event)"  
+               ></app-sort-button>
+            </div>
+         </div>
+      </div>
+      <div class="panel-body">
+         <table class="table table-condensed">
+            
+            <thead>
+               <tr>
+                  <th>Категория</th>
+                  <th>Блюдо</th>
+                  <th>Цена</th>
+                  <th></th>
+               </tr>
+            </thead>
+
+            <tr app-menu-item
+            	  *ngFor="let item of items | filter:sortTerm"
+            	  [item] = "item"
+            >
+            	<td>
+      				  <button type="button" 
+                	    	class="btn btn-success"
+                	    	(click)="addToCart(item)"
+                >
+                	<span class="glyphicon glyphicon-plus"></span>
+                </button>
+   	 			    </td>
+           	</tr>
+
+         </table>
+      </div>
+
+   </div>
+</div>
