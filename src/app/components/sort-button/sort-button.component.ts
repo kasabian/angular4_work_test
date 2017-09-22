@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output
+} from '@angular/core';
+import {Category} from '../../interfaces/category.interfaces';
 
 @Component({
   selector: 'app-sort-button',
@@ -8,11 +15,11 @@ import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 
 export class SortButtonComponent implements OnInit {
 
-  IsOpenSortMenu: boolean = false;
+  IsOpenSortMenu = false;
 
   lastTerm: string;
 
-  @Input() items: Array<Object>;
+  @Input() items: Category[];
 
   @Output() onSelect = new EventEmitter<boolean>();
 
@@ -21,14 +28,12 @@ export class SortButtonComponent implements OnInit {
   ngOnInit() { }
 
   switchSortMenu() {
-  	this.IsOpenSortMenu = !this.IsOpenSortMenu;
+    this.IsOpenSortMenu = !this.IsOpenSortMenu;
   }
 
   selectTerm(term) {
-
     this.lastTerm = term;
     this.onSelect.emit(term);
     this.IsOpenSortMenu = false;
-  }  
-
+  }
 }

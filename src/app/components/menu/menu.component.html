@@ -6,15 +6,19 @@
                <h3 class="panel-title">Меню</h3>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 b-head-control">
-               <app-sort-button [items] = "items"
-                                (onSelect) = "setSortTerm($event)"  
+               <app-sort-button [items]="items"
+                                (onSelect)="setSortTerm($event)"
                ></app-sort-button>
             </div>
          </div>
       </div>
       <div class="panel-body">
+         <div class="row">
+           <app-add-item (onAddNewItem)="addNewItem($event)"></app-add-item>
+         </div>
+
          <table class="table table-condensed">
-            
+
             <thead>
                <tr>
                   <th>Категория</th>
@@ -26,10 +30,10 @@
 
             <tr app-menu-item
             	  *ngFor="let item of items | filter:sortTerm"
-            	  [item] = "item"
+            	  [item]="item"
             >
             	<td>
-      				  <button type="button" 
+      				  <button type="button"
                 	    	class="btn btn-success"
                 	    	(click)="addToCart(item)"
                 >
@@ -37,7 +41,6 @@
                 </button>
    	 			    </td>
            	</tr>
-
          </table>
       </div>
 

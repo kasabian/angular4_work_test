@@ -1,0 +1,34 @@
+<div class="col-md-12 col-sm-12 col-xs-12 b-bottom-margin-30">
+    <form class="form-inline"  [formGroup]="form">
+
+        <div class="form-group">
+        	<input type="text"
+        		   class="form-control"
+        		   placeholder="Категория"
+        		   formControlName="category"
+        	>
+        </div>
+
+        <div class="form-group">
+            <input type="text"
+            	   class="form-control name_input"
+            	   placeholder="Блюдо"
+            	   formControlName="name"
+            >
+        </div>
+
+        <div class="form-group">
+            <input type="number"
+                   class="form-control price_input"
+                   placeholder="Цена"
+                   formControlName="price"
+            >
+        </div>
+
+        <button type="submit"
+        		class="btn btn-default"
+        		(click) = "addNewItem()"
+        >Добавить</button>
+
+    </form>
+</div>
